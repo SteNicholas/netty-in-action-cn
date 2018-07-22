@@ -5,7 +5,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * Created by kerr.
- *
+ * <p>
  * 代码清单 1-2 被回调触发的 ChannelHandler
  */
 public class ConnectHandler extends ChannelInboundHandlerAdapter {

@@ -11,10 +11,15 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 
 /**
+ * ChannelFuture用于在执行异步操作的时候使用。监听器的回调方法operationComplete()将会在对应的操作完成时被调用，然后监听器可以判断该操作是成功地完成了还是出错了。如果是后者，检索产生的Throwable。由ChannelFutureListener提供的通知机制消除手动检查对应的操作是否完成的必要。
+ * 每个Netty的出站I/O操作都将返回一个ChannelFuture；也就是说，它们都不会阻塞。
+ */
+
+/**
  * Created by kerr.
- *
+ * <p>
  * 代码清单 1-3 异步地建立连接
- *
+ * <p>
  * 代码清单 1-4 回调实战
  */
 public class ConnectExample {
@@ -22,9 +27,9 @@ public class ConnectExample {
 
     /**
      * 代码清单 1-3 异步地建立连接
-     *
+     * <p>
      * 代码清单 1-4 回调实战
-     * */
+     */
     public static void connect() {
         Channel channel = CHANNEL_FROM_SOMEWHERE; //reference form somewhere
         // Does not block
@@ -35,7 +40,7 @@ public class ConnectExample {
         future.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) {
-                //检查操作的状态
+                //当该监听器被通知连接已经建立的时候，检查操作的状态
                 if (future.isSuccess()) {
                     //如果操作是成功的，则创建一个 ByteBuf 以持有数据
                     ByteBuf buffer = Unpooled.copiedBuffer(
