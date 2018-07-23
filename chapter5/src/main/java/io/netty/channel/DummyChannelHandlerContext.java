@@ -13,6 +13,7 @@ public class DummyChannelHandlerContext extends AbstractChannelHandlerContext {
             true,
             true
     );
+
     public DummyChannelHandlerContext(DefaultChannelPipeline pipeline,
                                       EventExecutor executor,
                                       String name, boolean inbound, boolean outbound) {
