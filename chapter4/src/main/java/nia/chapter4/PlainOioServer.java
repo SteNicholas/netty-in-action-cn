@@ -16,7 +16,7 @@ public class PlainOioServer {
         //将服务器绑定到指定端口
         final ServerSocket socket = new ServerSocket(port);
         try {
-            for(;;) {
+            for (; ; ) {
                 //接受连接
                 final Socket clientSocket = socket.accept();
                 System.out.println(
@@ -43,7 +43,7 @@ public class PlainOioServer {
                                 // ignore on close
                             }
                         }
-                //启动线程
+                        //启动线程
                     }
                 }).start();
             }

@@ -34,7 +34,7 @@ public class NettyOioServer {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                                ch.pipeline().addLast(
+                            ch.pipeline().addLast(
                                     //添加一个 ChannelInboundHandlerAdapter以拦截和处理事件
                                     new ChannelInboundHandlerAdapter() {
                                         @Override
@@ -59,4 +59,3 @@ public class NettyOioServer {
         }
     }
 }
-

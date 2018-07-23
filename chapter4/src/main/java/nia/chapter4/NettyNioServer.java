@@ -33,15 +33,15 @@ public class NettyNioServer {
                                       @Override
                                       public void initChannel(SocketChannel ch)
                                               throws Exception {
-                                              ch.pipeline().addLast(
-                                                 //添加 ChannelInboundHandlerAdapter以接收和处理事件
+                                          ch.pipeline().addLast(
+                                                  //添加 ChannelInboundHandlerAdapter以接收和处理事件
                                                   new ChannelInboundHandlerAdapter() {
                                                       @Override
                                                       public void channelActive(
                                                               //将消息写到客户端，并添加ChannelFutureListener，
                                                               //以便消息一被写完就关闭连接
                                                               ChannelHandlerContext ctx) throws Exception {
-                                                                ctx.writeAndFlush(buf.duplicate())
+                                                          ctx.writeAndFlush(buf.duplicate())
                                                                   .addListener(
                                                                           ChannelFutureListener.CLOSE);
                                                       }
@@ -58,4 +58,3 @@ public class NettyNioServer {
         }
     }
 }
-

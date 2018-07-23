@@ -13,13 +13,16 @@ import java.util.concurrent.Executors;
 
 /**
  * 代码清单 4-5 写出到 Channel
- *
+ * <p>
  * 代码清单 4-6 从多个线程使用同一个 Channel
+ * <p>
+ * Netty的Channel实现是线程安全的。
  *
  * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class ChannelOperationExamples {
     private static final Channel CHANNEL_FROM_SOMEWHERE = new NioSocketChannel();
+
     /**
      * 代码清单 4-5 写出到 Channel
      */
