@@ -26,7 +26,7 @@ public class FixedLengthFrameDecoderTest {
         ByteBuf input = buf.duplicate();
         //创建一个EmbeddedChannel，并添加一个FixedLengthFrameDecoder，其将以 3 字节的帧长度被测试
         EmbeddedChannel channel = new EmbeddedChannel(
-            new FixedLengthFrameDecoder(3));
+                new FixedLengthFrameDecoder(3));
         // write bytes
         //将数据写入EmbeddedChannel
         assertTrue(channel.writeInbound(input.retain()));
@@ -61,7 +61,7 @@ public class FixedLengthFrameDecoderTest {
         ByteBuf input = buf.duplicate();
 
         EmbeddedChannel channel = new EmbeddedChannel(
-            new FixedLengthFrameDecoder(3));
+                new FixedLengthFrameDecoder(3));
         //返回 false，因为没有一个完整的可供读取的帧
         assertFalse(channel.writeInbound(input.readBytes(2)));
         assertTrue(channel.writeInbound(input.readBytes(7)));
